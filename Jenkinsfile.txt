@@ -30,12 +30,12 @@ stages {
     }
       stage ('Code Analysis') {
     steps {
-    echo 'check the quality of the code...'
+    echo 'We use CodeClimate for test automation at this stage. This tool will gives you insights on your code complexity, redundancy and         test coverage.'
     }
     }
     stage ('Security Scan') {
     steps {
-    echo 'deploy the application to a testing environment: $TESTING_ENVIRONMENT...'
+    echo 'In this stage, a security scan tool is used which is ConnectWise, to assess any cyber attacks. Deploy the application to a testing     This is used for quick indentification threat. Testing environment: $TESTING_ENVIRONMENT...'
     }
     post{
     success{
@@ -48,14 +48,15 @@ stages {
     }
     }
     }
-    stage ('Integration') {
+    stage ('Integration Tests') {
     steps {
     sleep 10
+    echo 'The data is feeding from the system.'
     }
     }
     stage ('Deploy to Production') {
     steps {
-    echo 'deploy the code to production environment: $PRODUCTION_ENVIRONMENT...'
+    echo 'deploy the code to production environment: AWS EC2...'
     }
     }
   
