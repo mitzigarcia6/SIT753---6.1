@@ -17,8 +17,8 @@ stages {
     attachLog: true, 
     subject: "Build Status Email",
     body: "Build was successful!"
-    to: "mitziericagarcia@gmail.com",
-    
+    to: "mitziericagarcia@gmail.com"
+    )
     }
     }
     }
