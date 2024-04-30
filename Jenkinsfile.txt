@@ -9,25 +9,36 @@ stages {
     stage( 'Build') {
     steps {
     echo 'fetch the source code from the directory path: $DIRECTORY_PATH..'
+    echo 'Is where the codes and configurations are developed'
+    }
+    post{
+    success{
+    emailext(
+    attachLog: true, 
+    subject: "Build Status Email",
+    body: "Build was successful!"
+    to: "mitziericagarcia@gmail.com",
+    
+    }
     }
     }
     stage ('Test') {
     steps {
-    echo 'unit tests..'
-    echo 'integration tests..'
+    echo 'unit tests is to check that your code works as expected'
+    echo 'integration testing involves evaluating how your software interacts with other software or functions, ensuring that it works well         in conjunction with them'
     }
     }
-      stage ('Code Quality Check') {
+      stage ('Code Analysis') {
     steps {
     echo 'check the quality of the code...'
     }
     }
-    stage ('Deploy') {
+    stage ('Security Scan') {
     steps {
     echo 'deploy the application to a testing environment: $TESTING_ENVIRONMENT...'
     }
     }
-    stage ('Approval') {
+    stage ('Integration') {
     steps {
     sleep 10
     }
