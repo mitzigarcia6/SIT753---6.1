@@ -16,7 +16,7 @@ stages {
     emailext(
     attachLog: true, 
     subject: "Build Status Email",
-    body: "Build was successful!"
+    body: "Build was successful!",
     to: "mitziericagarcia@gmail.com"
     )
     }
